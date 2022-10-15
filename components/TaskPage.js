@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react"
 import { Text, View, StyleSheet } from "react-native"
 
-const time = 60
-
 const TaskPage = ({navigation}) => {
 
     const [time, setTime] = useState(60);
@@ -30,15 +28,15 @@ const TaskPage = ({navigation}) => {
             setTime(time - 1);
         }, 1000);
 
-        if (time <= 0){
-            navigation.navigate("Home");
-        }
+        // if (time <= 0){
+        //     navigation.navigate("Home");
+        // }
     }, [time])
 
     return (
         <View style={styles.container}>
-            <Text>This is a Task Page</Text>
-            <Text>You have {time} left</Text>
+            <Text style={styles.text}>This is a Task Page</Text>
+            <Text style={styles.timer}>You have {time} left</Text>
         </View>
     )
 }
@@ -46,7 +44,15 @@ const TaskPage = ({navigation}) => {
 const styles = StyleSheet.create({
     container: {
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        top: '28%',
+    },
+    text: {
+        fontSize: 40,
+    },
+    timer: {
+        fontSize: 20,
+        color: 'red',
     }
 })
 
