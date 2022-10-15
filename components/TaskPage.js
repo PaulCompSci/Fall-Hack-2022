@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { SafeAreaView, ScrollView, StyleSheet, Text } from 'react-native';
 import CircularProgress from 'react-native-circular-progress-indicator';
+import { LinearGradient } from 'expo-linear-gradient';
 
 const TaskPage = ({ route, navigation }) => {
   const [task, setTask] = useState(null);
@@ -10,7 +11,13 @@ const TaskPage = ({ route, navigation }) => {
   // setTask(todoItem[Math.floor(Math.random() * 30)]);
 
   return (
-    <SafeAreaView style={styles.container}>
+    <LinearGradient
+      style={styles.container}
+      colors={['#fdfcfb', '#e2d1c3']}
+      start={{ x: 0.5, y: 0 }}
+      end={{ x: 0.5, y: 1 }}
+      locations={[0.2, 0.8]}
+    >
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <Text style={styles.task}>
           {todoItem[Math.floor(Math.random() * 29)]}
@@ -20,7 +27,7 @@ const TaskPage = ({ route, navigation }) => {
           radius={120}
           maxValue={60}
           initialValue={60}
-          progressValueColor={"black"}
+          progressValueColor={'black'}
           activeStrokeWidth={20}
           inActiveStrokeWidth={15}
           duration={60000}
@@ -29,15 +36,15 @@ const TaskPage = ({ route, navigation }) => {
           progressValueFontSize={80}
           progressValueStyle={{ fontWeight: '325' }}
           strokeColorConfig={[
-            { color: "red", value: 10 },
-            { color: "orange", value: 30 },
-            { color: "green", value: 60 },
+            { color: '#7E0306', value: 10 },
+            { color: '#FA8743', value: 30 },
+            { color: '#FFDECD', value: 60 },
           ]}
           // valueSuffix="S"
           valueSuffixStyle={styles.suffix}
         />
       </ScrollView>
-    </SafeAreaView>
+    </LinearGradient>
   );
 };
 
@@ -50,7 +57,8 @@ const styles = StyleSheet.create({
     // backgroundColor: "#181818",
   },
   task: {
-    fontSize: 40,
+    bottom: 50,
+    fontSize: 30,
     textAlign: 'center',
     marginBottom: 30,
   },

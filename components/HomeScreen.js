@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   logo: {
-    fontSize: 30,
+    fontSize: 40,
     bottom: 100,
     letterSpacing: 10,
     color: '#665A48',
