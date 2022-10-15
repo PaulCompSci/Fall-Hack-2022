@@ -1,11 +1,15 @@
-import { Text } from "react-native";
+import { Text, View, Button } from "react-native";
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
+
     return (
-        <Text>
-            This is HomeScreen
-        </Text>
-    )
+      <View>
+        <Text>This is HomeScreen</Text>
+        <Button title = "Are you ready?" onPress={() => {
+            navigation.navigate('Task');
+        }}/>
+      </View>
+    );
 }
 
 export default HomeScreen;
