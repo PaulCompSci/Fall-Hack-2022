@@ -2,7 +2,7 @@ import { SafeAreaView } from "react-native";
 import HomeScreen from "./components/HomeScreen";
 import {NavigationContainer} from '@react-navigation/native'
 import {createNativeStackNavigator} from '@react-navigation/native-stack'
-import TaskPage from './components/TaskPage'
+import Task from './components/Task'
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -10,7 +10,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" options={{ headerShown: false }} component={HomeScreen} />
-        <Stack.Screen name="Task" options={{ headerShown: false }} component={TaskPage} />
+        <Stack.Screen name="Task" options={{ headerShown: false }} component={Task} />
       </Stack.Navigator>
     </NavigationContainer>
   );
