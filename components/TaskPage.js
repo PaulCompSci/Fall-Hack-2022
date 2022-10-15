@@ -13,18 +13,28 @@ const {todoItem} = route.params;
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <Text style={styles.task}>{todoItem[Math.floor(Math.random() * 29)]}</Text>
+        <Text style={styles.task}>
+          {todoItem[Math.floor(Math.random() * 29)]}
+        </Text>
         <CircularProgress
           value={0}
           radius={120}
           maxValue={60}
           initialValue={60}
           progressValueColor={"#fff"}
-          activeStrokeWidth={15}
+          activeStrokeWidth={20}
           inActiveStrokeWidth={15}
           duration={60000}
           onAnimationComplete={() => navigation.navigate("Home")}
           delay={1000}
+          progressValueFontSize={80}
+          progressValueColor={'black'}
+          progressValueStyle={{ fontWeight: '325' }}
+          strokeColorConfig={[
+            { color: "red", value: 10 },
+            { color: "orange", value: 30 },
+            { color: "green", value: 60 },
+          ]}
           // valueSuffix="S"
           valueSuffixStyle={styles.suffix}
         />
