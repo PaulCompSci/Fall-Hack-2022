@@ -1,28 +1,20 @@
 import { useEffect, useState } from "react"
 import { Text, View, StyleSheet } from "react-native"
 
-const TaskPage = ({navigation}) => {
-
+const TaskPage = ({route, navigation}) => {
+    const [task, setTask] = useState(null);
     const [time, setTime] = useState(60);
-
-    const secondToTime = (sec) =>{
-        let hours = Math.floor(sec / (60 * 60));
-
-        let divisor_for_minutes = sec % (60 *  60);
-        let minutes = Math.floor(divisor_for_minutes / 60);
-
-        let divisor_for_seconds = divisor_for_minutes % 60;
-        let seconds = Math.ceil(divisor_for_seconds);
-
-        let obj = {
-            "h":hours,
-            "m":minutes,
-            "s":seconds
-        };
-        return obj;
-    }
+    
+    const {todoItem} = route.params;
 
     useEffect(() => {
+
+        // console.log(todoItem[Math.floor(Math.random() * 30)]);
+        if (task === null){
+            setTask(todoItem[Math.floor(Math.random() * 30)])
+            // console.log(task)
+        }
+
         setTimeout(() => {
             console.log('1 sec.');
             setTime(time - 1);
@@ -34,11 +26,11 @@ const TaskPage = ({navigation}) => {
     }, [time])
 
     return (
-        <View style={styles.container}>
-            <Text style={styles.text}>This is a Task Page</Text>
-            <Text style={styles.timer}>You have {time} left</Text>
-        </View>
-    )
+      <View style={styles.container}>
+        <Text style={styles.text}>{task}</Text>
+        <Text style={styles.timer}>You have {time} left</Text>
+      </View>
+    );
 }
 
 const styles = StyleSheet.create({
@@ -49,6 +41,8 @@ const styles = StyleSheet.create({
     },
     text: {
         fontSize: 40,
+        textAlign: 'center',
+        marginBottom: 40,
     },
     timer: {
         fontSize: 20,
