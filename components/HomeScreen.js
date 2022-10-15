@@ -34,8 +34,8 @@ const styles = StyleSheet.create({
     paddingVertical: 30,
     elevation: 3,
     top: 140,
-    fontFamily: 
-  },
+    // fontFamily: 
+  }
 });
 
 export default HomeScreen;
