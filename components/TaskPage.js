@@ -1,53 +1,61 @@
-import { useEffect, useState } from "react"
-import { Text, View, StyleSheet } from "react-native"
+import { useEffect, useState } from "react";
+import { SafeAreaView, ScrollView, StyleSheet, Text } from "react-native";
+import CircularProgress from "react-native-circular-progress-indicator";
 
 const TaskPage = ({route, navigation}) => {
-    const [task, setTask] = useState(null);
-    const [time, setTime] = useState(60);
-    
-    const {todoItem} = route.params;
 
-    useEffect(() => {
+const[task, setTask] =useState(null);
 
-        // console.log(todoItem[Math.floor(Math.random() * 30)]);
-        if (task === null){
-            setTask(todoItem[Math.floor(Math.random() * 30)])
-            // console.log(task)
-        }
+const {todoItem} = route.params;
 
-        setTimeout(() => {
-            console.log('1 sec.');
-            setTime(time - 1);
-        }, 1000);
+// setTask(todoItem[Math.floor(Math.random() * 30)]);
 
-        // if (time <= 0){
-        //     navigation.navigate("Home");
-        // }
-    }, [time])
-
-    return (
-      <View style={styles.container}>
-        <Text style={styles.text}>{task}</Text>
-        <Text style={styles.timer}>You have {time} left</Text>
-      </View>
-    );
-}
+  return (
+    <SafeAreaView style={styles.container}>
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
+        <Text style={styles.task}>{todoItem[Math.floor(Math.random() * 30)]}</Text>
+        <CircularProgress
+          value={0}
+          radius={120}
+          maxValue={60}
+          initialValue={60}
+          progressValueColor={"#fff"}
+          activeStrokeWidth={15}
+          inActiveStrokeWidth={15}
+          duration={60000}
+          onAnimationComplete={() => navigation.navigate("Home")}
+          delay={1000}
+          // valueSuffix="S"
+          valueSuffixStyle={styles.suffix}
+        />
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
 
 const styles = StyleSheet.create({
-    container: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        top: '28%',
-    },
-    text: {
-        fontSize: 40,
-        textAlign: 'center',
-        marginBottom: 40,
-    },
-    timer: {
-        fontSize: 20,
-        color: 'red',
-    }
-})
+  container: {
+    flex: 1,
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    // backgroundColor: "#181818",
+  },
+  task: {
+    fontSize: 40,
+    textAlign: 'center',
+    marginBottom: 30,
+  },
+  scrollContainer: {
+    minWidth: "100%",
+    flexGrow: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  suffix: {
+    fontSize: 45,
+    color: "yellowgreen",
+  },
+});
 
 export default TaskPage;
