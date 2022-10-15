@@ -3,9 +3,7 @@
     "name": "OneMinAct",
     "slug": "OneMinAct",
     "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "extra": {
       "eas": {
         "projectId": "18c17284-d84d-4e4d-9362-8e1be80ef549"

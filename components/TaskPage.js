@@ -1,14 +1,13 @@
-import { useEffect, useState } from "react";
-import { SafeAreaView, ScrollView, StyleSheet, Text } from "react-native";
-import CircularProgress from "react-native-circular-progress-indicator";
+import { useEffect, useState } from 'react';
+import { SafeAreaView, ScrollView, StyleSheet, Text } from 'react-native';
+import CircularProgress from 'react-native-circular-progress-indicator';
 
-const TaskPage = ({route, navigation}) => {
+const TaskPage = ({ route, navigation }) => {
+  const [task, setTask] = useState(null);
 
-const[task, setTask] =useState(null);
+  const { todoItem } = route.params;
 
-const {todoItem} = route.params;
-
-// setTask(todoItem[Math.floor(Math.random() * 30)]);
+  // setTask(todoItem[Math.floor(Math.random() * 30)]);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -21,14 +20,13 @@ const {todoItem} = route.params;
           radius={120}
           maxValue={60}
           initialValue={60}
-          progressValueColor={"#fff"}
+          progressValueColor={"black"}
           activeStrokeWidth={20}
           inActiveStrokeWidth={15}
           duration={60000}
-          onAnimationComplete={() => navigation.navigate("Home")}
+          onAnimationComplete={() => navigation.navigate('Home')}
           delay={1000}
           progressValueFontSize={80}
-          progressValueColor={'black'}
           progressValueStyle={{ fontWeight: '325' }}
           strokeColorConfig={[
             { color: "red", value: 10 },
@@ -46,9 +44,9 @@ const {todoItem} = route.params;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    width: "100%",
-    alignItems: "center",
-    justifyContent: "center",
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
     // backgroundColor: "#181818",
   },
   task: {
@@ -57,14 +55,14 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   scrollContainer: {
-    minWidth: "100%",
+    minWidth: '100%',
     flexGrow: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   suffix: {
     fontSize: 45,
-    color: "yellowgreen",
+    color: 'yellowgreen',
   },
 });
 
