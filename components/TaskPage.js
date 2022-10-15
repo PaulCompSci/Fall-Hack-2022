@@ -13,7 +13,7 @@ const {todoItem} = route.params;
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <Text style={styles.task}>{todoItem[Math.floor(Math.random() * 30)]}</Text>
+        <Text style={styles.task}>{todoItem[Math.floor(Math.random() * 29)]}</Text>
         <CircularProgress
           value={0}
           radius={120}
