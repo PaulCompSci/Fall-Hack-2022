@@ -51,9 +51,7 @@ const HomeScreen = ({ navigation }) => {
       end={{ x: 0.5, y: 1 }}
       locations={[0.2, 0.8]}
     >
-      <Text style={styles.logo}>One</Text>
-      <Text style={styles.logo}>Min</Text>
-      <Text style={styles.logo}>Act</Text>
+      <Image source={require('./OneMinAct_1.png')} style={styles.logo} />
       <Pressable
         style={styles.button}
         onPress={() => {
@@ -75,11 +73,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   logo: {
-    fontSize: 40,
-    bottom: 100,
-    letterSpacing: 10,
-    color: '#665A48',
-    fontWeight: '1000',
+    width: 500,
+    height: 500,
   },
   button: {
     backgroundColor: '#9F8772',
@@ -87,7 +82,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 80,
     paddingVertical: 30,
     elevation: 3,
-    top: 140,
   },
   btnText: {
     fontSize: 20,
