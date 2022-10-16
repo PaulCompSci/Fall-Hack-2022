@@ -73,3 +73,7 @@ Finally, if you want to compile an Android app, you can use the following code. 
 ```bash
 npm run deploy
 ```
+
+## Click for the video demo
+
+[Video Demo](https://www.youtube.com/watch?v=XSx6upMBx10)
