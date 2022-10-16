@@ -18,12 +18,12 @@ const TaskPage = ({ route, navigation }) => {
       await sound.playAsync();
     }
 
+    const { todoItem } = route.params;
+
     useEffect(() => {
-    playSound();
-    
+        playSound();
     }, []);
 
-  const { todoItem } = route.params;
 
   // setTask(todoItem[Math.floor(Math.random() * 30)]);
 
@@ -37,7 +37,7 @@ const TaskPage = ({ route, navigation }) => {
     >
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <Text style={styles.task}>
-          {todoItem[Math.floor(Math.random() * 29)]}
+          {todoItem[Math.floor(Math.random() * 27)]}
         </Text>
         <CircularProgress
           value={0}
