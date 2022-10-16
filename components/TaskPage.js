@@ -2,9 +2,26 @@ import { useEffect, useState } from 'react';
 import { SafeAreaView, ScrollView, StyleSheet, Text } from 'react-native';
 import CircularProgress from 'react-native-circular-progress-indicator';
 import { LinearGradient } from 'expo-linear-gradient';
+import { Audio } from "expo-av";
 
 const TaskPage = ({ route, navigation }) => {
-  const [task, setTask] = useState(null);
+    const [sound, setSound] = useState();
+
+    async function playSound() {
+      console.log("Loading Sound");
+      const { sound } = await Audio.Sound.createAsync(
+        require("./music.mp3")
+      );
+      setSound(sound);
+
+      console.log("Playing Sound");
+      await sound.playAsync();
+    }
+
+    useEffect(() => {
+    playSound();
+    
+    }, []);
 
   const { todoItem } = route.params;
 
