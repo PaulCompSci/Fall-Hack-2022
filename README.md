@@ -30,7 +30,7 @@ expo-av: ~12.0.4 <br />
 
 ## Steps to run the app:
 
-Note: this app is only avaliable for Android <br />
+Note: this app is only avaliable for Android. You can download the demo APK file, OneMinAct _v1.0.apk, from our repo.<br />
 
 Clone the repo to your computer: <br />
 
@@ -66,6 +66,10 @@ Press 'a' or scan the QR code with the [Expo Go](https://play.google.com/store/a
 npx expo start
 ```
 
-Finally, If you want to compile our app, you can use 'run npm run deploy' to compile an Android app. Make sure you have an Expo account and that everything is set up. <br />
+### Method 3
 
-You can also access to our demo in the repo.
+Finally, if you want to compile an Android app, you can use the following code. Make sure you have an Expo account and that everything is set up: <br />
+
+```bash
+npm run deploy
+```
